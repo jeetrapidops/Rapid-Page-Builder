@@ -1,0 +1,26 @@
+.navbar{
+    box-sizing:border-box;  
+    width: 5%;
+    height: 100vh;
+    display: flex;
+    /* border: 2px solid red; */
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+.top hr{
+    margin: 0 auto;
+    padding: 0;
+    width: 65%;
+    height: 1%;
+    background-color: gray;
+    border: none;
+}
+.navbar img{
+    width: 80%;
+    padding: 7%;
+    margin-left:  9%;
+}
+.navbar img:hover{
+    background-color: #EEF2FF;
+}
