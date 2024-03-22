@@ -9,7 +9,7 @@ const Register = () => {
     password: ''
   });
 
-  const navigate = useNavigate(); // Create navigate function for navigation
+  const navigate = useNavigate();
 
   const { fullname, email, password } = formData;
 
@@ -26,12 +26,12 @@ const Register = () => {
         password
       });
 
-      alert(response.data.message); // Handle success response
+      alert(response.data.message); 
 
       // Navigate to login page after successful registration
       navigate('/login');
     } catch (error) {
-      alert(error.response.data.message); // Handle error response
+      alert(error.response.data.message); 
     }
   };
   return (

@@ -7,34 +7,32 @@ const PageModelSchema = new Schema(
     created_by: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required:true
     },
     title: {
       type: String,
-      required: true,
-      unique: true,
+      required: true
     },
     subtitle: {
       type: String,
-      required: true,
-      unique: true,
+      required:true
     },
     body: {
       type: String,
       required: true,
-      unique: true,
     },
     attachment: {
-      data: Buffer, // Store file data as Buffer
-      contentType: String, // Store content type (e.g., image/jpeg, application/pdf)
+      data: Buffer, 
+      contentType: String,
     },
     author_name: {
       type: String,
+      required:true
     },
     url: {
       type: String,
-      required: true,
       unique: true,
+      required:true
     },
     status: {
       type: String,
@@ -42,8 +40,7 @@ const PageModelSchema = new Schema(
       default: "draft",
     },
     publish_datetime: {
-        type: Date,
-        required: true,
+        type: Date
       },
   },
   { timestamps: true }

@@ -4,6 +4,7 @@ import connectDb from './db/connectDb.js';
 import cors from 'cors';
 import authRoute from './routes/authRoute.js';
 import pageRoute from './routes/pageRoute.js'
+import "./middleware/cronScheduler.js"
 
 dotenv.config({
     path: "./env"
@@ -11,7 +12,6 @@ dotenv.config({
 const app = express();
 app.use(cors());
 app.use(express.json());
-// app.use(express.json());
 
 app.get("/",(req,res)=>{
     res.send("backend")
@@ -19,6 +19,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api/v1/auth",authRoute);
 app.use("/api/v1/page",pageRoute);
+
 
 connectDb().then(()=>{
     app.listen(process.env.PORT, ()=>{

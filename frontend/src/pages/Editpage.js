@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar"
 import { useAuth } from '../context/authContext';
-import { FormPage } from '../components/Formpage';
+import { EditFormpage } from '../components/EditFormpage';
 
-const  Addpage =()=> {
+const  Editpage =()=> {
 
         const [auth] = useAuth()
         setTimeout(()=>{
@@ -15,11 +15,11 @@ const  Addpage =()=> {
         
         <div style={{display:"flex"}}>
         <Sidebar/>
-        <FormPage/>
+        <EditFormpage/>
         </div>
         </>
             
     )
 }
 
-export default Addpage
+export default Editpage;

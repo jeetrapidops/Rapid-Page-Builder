@@ -1,5 +1,6 @@
 import User from "../models/userModel.js";
 import jwt from "jsonwebtoken";
+import nodemailer from "nodemailer"
 
 
 //test controller
@@ -30,7 +31,6 @@ export const registerController = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
-
     const newUser = new User({ fullname, email, password });
 
     await newUser.save();
@@ -43,7 +43,7 @@ export const registerController = async (req, res) => {
 };
 
 //login
-export const loginController = async (req,res) => {
+export const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -53,15 +53,32 @@ export const loginController = async (req,res) => {
       return res.status(404).json({ message: 'User not SignUp' });
     }
 
-    if (user.password !== password) {                                                                                                 
+    if (user.password !== password) {
       return res.status(401).json({ message: 'Invalid Password' });
     }
 
-    const access_token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '3h' });
+    const access_token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+
+    //mail code
+    // const transporter = nodemailer.createTransport({
+    //   service: 'gmail',
+    //   auth: {
+    //     user: `${process.env.EMAIL_ID}`,
+    //     pass: `${process.env.EMAIL_PASS}`
+    //   }
+    // });
+
+    // const info = await transporter.sendMail({
+    //   from: `${process.env.EMAIL_ID}`,
+    //   to: email,
+    //   subject: 'login successfully!',
+    //   text: `${email},\n\nenjoy,\n\nthis app!!!`
+    // });
+    // console.log('Email sent successfully:', info);
 
     res.status(200).json({ access_token });
   } catch (error) {
-    // console.error(error);
+    console.error('Error in loginController:', error);
     res.status(500).json({ message: 'Server error' });
   }
-}
+};

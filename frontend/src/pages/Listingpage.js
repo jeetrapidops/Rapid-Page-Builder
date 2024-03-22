@@ -5,7 +5,7 @@ import Pages from "../components/Pages";
 const Listingpage = () => {
     return(
         <>
-        <div className="listinspage" style={{display:"flex"}}>
+        <div className="listingpage" style={{display:"flex"}}>
         <Sidebar/>
         <Pages/>
         </div>

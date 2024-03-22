@@ -1,15 +1,12 @@
 .pages{
     box-sizing: border-box;
-    /* border: 2px solid green; */
     width: 100%;
 }
 .topbar{
     height: 13%;
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     padding: 1.5%;
-    /* border-bottom: 1.5px solid rgba(102, 99, 99, 0.451); */
     line-height: 1px;
 }
 .pages hr{
@@ -29,8 +26,6 @@
     border-radius: 3%;
 }
 .middle{
-    /* border: 1px solid blue; */
-    /* height: 5%; */
     margin-top: 0.3%;
     display: flex;
     justify-content: space-between;
@@ -38,7 +33,6 @@
 .search-div{
     height: 100%;
     width: 60%;
-    /* border: 1px solid black; */
     display: flex;
     align-items: center;
     padding: 0.5%;
@@ -47,10 +41,33 @@
     padding: 0.5%;
 }
 .filters{
-    /* height: 100%; */
     width: 20%;
-    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:hover {
+    background-color: #ddd;
+  }
+  

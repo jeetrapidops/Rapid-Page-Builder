@@ -4,44 +4,46 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 
 const Login = () => {
-
-  const [auth ,setAuth] = useAuth()
+  const [auth, setAuth] = useAuth();
 
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
-  const navigate = useNavigate(); // Create navigate function for navigation
+  const navigate = useNavigate(); 
 
   const { email, password } = formData;
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/auth/login', {
-        email,
-        password
-      });
-      if(response.data){
-        const access_token = response.data.access_token 
-        console.log(access_token)
-        localStorage.setItem("user" , access_token)// Handle success response
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      if (response.data) {
+        const access_token = response.data.access_token;
+        console.log(access_token);
+        localStorage.setItem("user", access_token); 
         setAuth({
-          access_token : access_token
-        })
+          access_token: access_token,
+        });
       }
       console.log(auth);
-      alert("login Successful")
-    
-      // Navigate to login page after successful registration
-      navigate('/');
+      alert("login Successful");
+
+      navigate("/ListingPage");
+      // navigate('/')
     } catch (error) {
-      alert(error.response.data.message); // Handle error response
+      alert(error.response.data.message); 
     }
   };
   return (
@@ -57,7 +59,8 @@ const Login = () => {
 
         <form
           class="border border-secondary-subtle p-4"
-          style={{ width: "80%" }} onSubmit={handleSubmit}
+          style={{ width: "80%" }}
+          onSubmit={handleSubmit}
         >
           <h2 class="mb-4">Login</h2>
 
@@ -92,7 +95,12 @@ const Login = () => {
           </div>
 
           <div>
-            <button type="submit" class="btn " id="login" style={{background: "#4F46E5", color:"white"}}>
+            <button
+              type="submit"
+              class="btn "
+              id="login"
+              style={{ background: "#4F46E5", color: "white" }}
+            >
               Login
             </button>
           </div>
