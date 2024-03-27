@@ -8,6 +8,8 @@ import Home from "./pages/Home.js";
 import ListingPublishedBlogs from "./pages/ListingPublishedBlogs.js";
 import Blogpage from "./pages/Blogpage.js"
 import Editpage from "./pages/Editpage.js";
+import UploadImage from "./pages/UploadImage.js";
+import ListingAllBlogs from "./pages/ListingAllBlogs.js";
 // import Dummy from "./components/dummy.js";
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
       {/* <Route path="/dummy" element={<Dummy/>}/> */}
       <Route path="/blogs/:url" element={<Blogpage/>}/>
       <Route path="/editpage/:id" element={<Editpage />}/>
+      <Route path="/uploadImage" element={<UploadImage />}/>
+      <Route path="/allBlogs" element={<ListingAllBlogs />}/>
     </Routes>
  
   );

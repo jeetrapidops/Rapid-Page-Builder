@@ -1,5 +1,5 @@
 import PageModel from "../models/pageModel.js";
-import cron from 'node-cron';
+import cron from "node-cron";
 
 export const createPageController = async (req, res) => {
   try {
@@ -11,11 +11,9 @@ export const createPageController = async (req, res) => {
       attachment,
       author_name,
       url,
-      status="draft",
-      publish_datetime
+      status = "draft",
+      publish_datetime,
     } = req.body;
-
-    
 
     const existingpage = await PageModel.findOne({ url });
     if (existingpage) {
@@ -91,7 +89,7 @@ export const getAllPages = async (req, res) => {
   } catch (error) {}
 };
 
-export const getPage = async (req,res) => {
+export const getPage = async (req, res) => {
   try {
     const user = req.user;
     const _id = req.params;
@@ -105,7 +103,7 @@ export const getPage = async (req,res) => {
     console.log("Error in get page event:", error);
     res.json("Something went wrong in get page event!!");
   }
-}
+};
 
 export const deletePage = async (req, res) => {
   try {
@@ -129,7 +127,6 @@ export const updatePage = async (req, res) => {
     const { title, subtitle, body, author_name, status, publish_datetime } =
       req.body;
     const _id = req.params;
-
 
     const data = await PageModel.findByIdAndUpdate(
       _id,
@@ -163,8 +160,8 @@ export const getBlog = async (req, res) => {
   try {
     const url = req.params;
     const data = await PageModel.findOne(url);
-    console.log(data);
-    
+    // console.log(data);
+
     res.status(200).json({
       success: true,
       data: data,
@@ -177,13 +174,13 @@ export const getBlog = async (req, res) => {
   }
 };
 
-export const getAllBlogs = async (req,res) => {
+export const getAllBlogs = async (req, res) => {
   try {
-    const blogs = await PageModel.find({ status:"published" });
+    const blogs = await PageModel.find({ status: "published" });
     res.status(200).json({
       success: true,
       message: "get all blogs",
       blogs,
     });
   } catch (error) {}
-}
+};

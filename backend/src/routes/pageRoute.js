@@ -1,5 +1,5 @@
 import express from "express";
-import { createPageController, deletePage, getAllPages, getBlog, getPage, publishpageController, updatePage } from "../controllers/pageController.js";
+import { createPageController, deletePage, getAllBlogs, getAllPages, getBlog, getPage, publishpageController, updatePage } from "../controllers/pageController.js";
 import { requireSignIn } from "../middleware/authMiddleware.js";
 
 
@@ -12,6 +12,7 @@ router.get("/get/:_id" ,requireSignIn, getPage)
 router.put("/update/:_id" ,requireSignIn, updatePage)
 router.delete("/delete/:_id" ,requireSignIn, deletePage)
 router.get("/getBlog/:url" , getBlog)
+router.get("/getAllBlogs" , getAllBlogs)
 
-
+ 
 export default router;

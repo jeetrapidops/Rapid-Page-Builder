@@ -91,14 +91,15 @@ export const EditFormpage = () => {
         {error && <div style={{ color: 'red' }}>{error}</div>}
         
         <input type="submit" value="Update" />
-        {/* <input
+         {/* <input
             type="datetime-local"
             id="datetime"
             name="datetime"
-            // value={new Date(formData.publish_datetime)}
-            onChange={handleChange}
-          />
-        <input type="button" value="Publish" /> */}
+            value={(formData.publish_datetime.toString())}
+            onChange={handleChange} defaultValue={(formData.publish_datetime)}
+          /> */}
+          {/* {typeof formData.publish_datetime} */}
+        {/* <input type="button" value="Publish" />  */}
 
       </form>
       </div>
